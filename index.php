@@ -1,3 +1,4 @@
+<?php
 /**
  * @package modified_after support
  * @version 1.0
@@ -20,3 +21,5 @@ add_filter('woocommerce_rest_orders_prepare_object_query', function(array $args,
     return $args;
 
 }, 10, 2);
+
+?>
