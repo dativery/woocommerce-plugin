@@ -1,10 +1,10 @@
 <?php
 /**
- * @package modified_after support
+ * @package Dativery: modified_after support
  * @version 1.0
  */
 /*
-Plugin Name: modified_after support
+Plugin Name: Dativery: modified_after support
 Version: 1.0
 */
 
