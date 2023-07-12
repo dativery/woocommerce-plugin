@@ -9,16 +9,21 @@ Version: 1.0
 */
 
 add_filter('woocommerce_rest_orders_prepare_object_query', function(array $args, \WP_REST_Request $request) {
-    $modified_after = $request->get_param('modified_after');
+	$modified_after = $request->get_param('modified_after');
 
-    if (!$modified_after) {
-        return $args;
-    }
+	if ($modifed_after) {
+	    $args['date_query'][0]['column'] = 'post_modified';
+	    $args['date_query'][0]['after']  = $modified_after;
+	    $args['orderby'] = 'post_modified';
+	    $args['order'] = 'asc';
+	}
 
-    $args['date_query'][0]['column'] = 'post_modified';
-    $args['date_query'][0]['after']  = $modified_after;
-    $args['orderby'] = 'post_modified';
-    $args['order'] = 'asc';
+	$number = $request->get_param('number');
+
+	if ($number) {
+	    $args['s'] = $number;
+	}
+
 
     return $args;
 
